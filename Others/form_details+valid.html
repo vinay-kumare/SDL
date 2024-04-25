@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm" onsubmit="return validateForm()">
+    <label for="firstname">First Name:</label><br>
+    <input type="text" id="firstname" name="firstname"><br>
+    <span id="firstnameError" class="error"></span><br>
+
+    <label for="lastname">Last Name:</label><br>
+    <input type="text" id="lastname" name="lastname"><br>
+    <span id="lastnameError" class="error"></span><br>
+
+    <label for="organization">Organization:</label><br>
+    <input type="text" id="organization" name="organization"><br>
+    <span id="organizationError" class="error"></span><br>
+
+    <label for="hobbies">Hobbies:</label><br>
+    <textarea id="hobbies" name="hobbies" rows="4" cols="50"></textarea><br>
+    <span id="hobbiesError" class="error"></span><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+function validateForm() {
+    var firstname = document.getElementById("firstname").value;
+    var lastname = document.getElementById("lastname").value;
+    var organization = document.getElementById("organization").value;
+    var hobbies = document.getElementById("hobbies").value;
+
+    var isValid = true;
+
+    if (firstname === "") {
+        document.getElementById("firstnameError").innerText = "Please enter your first name";
+        isValid = false;
+    } else {
+        document.getElementById("firstnameError").innerText = "";
+    }
+
+    if (lastname === "") {
+        document.getElementById("lastnameError").innerText = "Please enter your last name";
+        isValid = false;
+    } else {
+        document.getElementById("lastnameError").innerText = "";
+    }
+
+    if (organization === "") {
+        document.getElementById("organizationError").innerText = "Please enter your organization";
+        isValid = false;
+    } else {
+        document.getElementById("organizationError").innerText = "";
+    }
+
+    if (hobbies === "") {
+        document.getElementById("hobbiesError").innerText = "Please enter your hobbies";
+        isValid = false;
+    } else {
+        document.getElementById("hobbiesError").innerText = "";
+    }
+
+    return isValid;
+}
+</script>
+
+</body>
+</html>

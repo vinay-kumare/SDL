@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Railway Time Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .header {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">Railway Time Table</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Train Number</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Departure Station</th>
+        <th>Arrival Station</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12345</td>
+        <td>08:00 AM</td>
+        <td>11:00 AM</td>
+        <td>Station A</td>
+        <td>Station B</td>
+      </tr>
+      <tr>
+        <td>54321</td>
+        <td>10:00 AM</td>
+        <td>01:00 PM</td>
+        <td>Station C</td>
+        <td>Station D</td>
+      </tr>
+      <tr>
+        <td>67890</td>
+        <td>12:00 PM</td>
+        <td>03:00 PM</td>
+        <td>Station E</td>
+        <td>Station F</td>
+      </tr>
+      <tr>
+        <td>09876</td>
+        <td>02:00 PM</td>
+        <td>05:00 PM</td>
+        <td>Station G</td>
+        <td>Station H</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

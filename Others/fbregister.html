@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], input[type="password"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #1877f2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #166fe5;
+    }
+    .error-message {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2 style="text-align: center;">Facebook Registration Form</h2>
+  <form id="registrationForm">
+    <input type="text" id="firstName" placeholder="First Name">
+    <div id="firstNameError" class="error-message"></div>
+    <input type="text" id="lastName" placeholder="Last Name">
+    <div id="lastNameError" class="error-message"></div>
+    <input type="email" id="email" placeholder="Email">
+    <div id="emailError" class="error-message"></div>
+    <input type="password" id="password" placeholder="Password">
+    <div id="passwordError" class="error-message"></div>
+    <input type="submit" value="Register">
+  </form>
+</div>
+
+<script>
+  document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    var firstName = document.getElementById("firstName").value.trim();
+    var lastName = document.getElementById("lastName").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var password = document.getElementById("password").value.trim();
+    var valid = true;
+
+    // Validate first name
+    if (firstName === "") {
+      document.getElementById("firstNameError").textContent = "Please enter your first name";
+      valid = false;
+    }
+
+    // Validate last name
+    if (lastName === "") {
+      document.getElementById("lastNameError").textContent = "Please enter your last name";
+      valid = false;
+    }
+
+    // Validate email
+    if (email === "") {
+      document.getElementById("emailError").textContent = "Please enter your email";
+      valid = false;
+    } else if (!isValidEmail(email)) {
+      document.getElementById("emailError").textContent = "Please enter a valid email address";
+      valid = false;
+    }
+
+    // Validate password
+    if (password === "") {
+      document.getElementById("passwordError").textContent = "Please enter your password";
+      valid = false;
+    } else if (password.length < 6) {
+      document.getElementById("passwordError").textContent = "Password must be at least 6 characters long";
+      valid = false;
+    }
+
+    // Prevent form submission if validation fails
+    if (!valid) {
+      event.preventDefault();
+    }
+  });
+
+  // Function to validate email format
+  function isValidEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+</script>
+
+</body>
+</html>

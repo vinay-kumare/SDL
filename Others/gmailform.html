@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #1877f2;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #166fe5;
+    }
+    .error-message {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Gmail Registration</h2>
+  <form id="registrationForm">
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <input type="submit" value="Register">
+  </form>
+</div>
+
+<script>
+  document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    var firstName = document.getElementById("firstName").value.trim();
+    var lastName = document.getElementById("lastName").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var password = document.getElementById("password").value.trim();
+
+    // Reset any previous error messages
+    var errorMessage = document.querySelector('.error-message');
+    if (errorMessage) {
+      errorMessage.remove();
+    }
+
+    // Check if any field is empty
+    if (firstName === "" || lastName === "" || email === "" || password === "") {
+      event.preventDefault(); // Prevent form submission
+      displayErrorMessage("Please fill in all fields.");
+      return;
+    }
+
+    // Check if email format is valid
+    if (!isValidEmail(email)) {
+      event.preventDefault(); // Prevent form submission
+      displayErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Check if password is at least 6 characters long
+    if (password.length < 6) {
+      event.preventDefault(); // Prevent form submission
+      displayErrorMessage("Password must be at least 6 characters long.");
+      return;
+    }
+  });
+
+  // Function to display error message
+  function displayErrorMessage(message) {
+    var errorMessage = document.createElement('div');
+    errorMessage.textContent = message;
+    errorMessage.className = 'error-message';
+    document.getElementById('registrationForm').appendChild(errorMessage);
+  }
+
+  // Function to validate email format
+  function isValidEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+</script>
+
+</body>
+</html>
