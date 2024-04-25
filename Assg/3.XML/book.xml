@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Book ISBN="123456789">
+
+  <Title>Sample Book</Title>
+
+  <Author>John Doe</Author>
+
+  <PublicationYear>2022</PublicationYear>
+
+</Book>
